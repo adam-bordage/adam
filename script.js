@@ -30,8 +30,13 @@ document.getElementById('year').textContent = new Date().getFullYear();
 // Progression de lecture + avion + annonce
 const bar = document.querySelector('.progress-bar');
 const plane = document.querySelector('.plane');
-const ad = document.getElementById('ad');
-ad.querySelector('.ad-close').addEventListener('click', () => ad.remove());
+const ads = [...document.querySelectorAll('.ad')];
+let currentAd = 0;
+ads.forEach(a => a.querySelector('.ad-close').addEventListener('click', () => {
+  a.remove();
+  currentAd++;
+  updateProgress();
+}));
 
 function updateProgress() {
   const h = document.documentElement;
@@ -40,7 +45,7 @@ function updateProgress() {
   bar.style.transform = `scaleX(${p})`;
   plane.style.left = `calc((100% - 28px) * ${p})`;
   plane.classList.toggle('takeoff', p > 0.97);
-  ad.classList.toggle('show', p > 0.2 && p < 0.9);
+  ads.forEach((a, i) => a.classList.toggle('show', i === currentAd && p > 0.2 && p < 0.9));
 }
 addEventListener('scroll', updateProgress, { passive: true });
 addEventListener('resize', updateProgress);
