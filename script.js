@@ -26,3 +26,22 @@ links.forEach(l => {
 
 // Année du pied de page
 document.getElementById('year').textContent = new Date().getFullYear();
+
+// Progression de lecture + avion + annonce
+const bar = document.querySelector('.progress-bar');
+const plane = document.querySelector('.plane');
+const ad = document.getElementById('ad');
+ad.querySelector('.ad-close').addEventListener('click', () => ad.remove());
+
+function updateProgress() {
+  const h = document.documentElement;
+  const max = h.scrollHeight - h.clientHeight;
+  const p = max > 0 ? h.scrollTop / max : 0;
+  bar.style.transform = `scaleX(${p})`;
+  plane.style.left = `calc((100% - 28px) * ${p})`;
+  plane.classList.toggle('takeoff', p > 0.97);
+  ad.classList.toggle('show', p > 0.2 && p < 0.9);
+}
+addEventListener('scroll', updateProgress, { passive: true });
+addEventListener('resize', updateProgress);
+updateProgress();
