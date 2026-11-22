@@ -104,3 +104,22 @@ footer{text-align:center;color:var(--steel);font-size:.9rem;padding:2.5rem 1rem;
   .skills{grid-template-columns:1fr}
   .contact-list li{grid-template-columns:1fr}
 }
+
+/* Barre de progression + avion */
+.progress{position:fixed;left:0;right:0;bottom:0;height:4px;background:var(--line);z-index:30;pointer-events:none}
+.progress-bar{height:100%;background:var(--blue);transform-origin:left;transform:scaleX(0)}
+.plane{position:absolute;bottom:3px;left:0;width:28px;height:28px;fill:var(--blue);transform:rotate(90deg);transition:transform .4s ease,bottom .4s ease}
+.plane.takeoff{transform:rotate(60deg);bottom:26px}
+
+/* Fausse annonce */
+.ad{position:fixed;right:1.2rem;bottom:2rem;width:250px;padding:1rem 1.1rem;background:var(--card);border:2px solid var(--ink);box-shadow:6px 6px 0 var(--blue);z-index:25;opacity:0;transform:translateY(20px);pointer-events:none;transition:opacity .3s,transform .3s}
+.ad.show{opacity:1;transform:none;pointer-events:auto}
+.ad-tag{font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--steel)}
+.ad-title{font:800 1.15rem/1.15 var(--head);margin:.3rem 0 .4rem}
+.ad-text{font-size:.88rem;color:var(--steel);margin-bottom:.8rem}
+.ad-btn{display:block;text-align:center;background:var(--blue);color:#fff;text-decoration:none;font-weight:600;padding:.55rem;border-radius:5px}
+.ad-link{display:block;text-align:center;margin-top:.5rem;font-size:.9rem;font-weight:600;color:var(--blue)}
+.ad-close{position:absolute;top:.3rem;right:.5rem;background:none;border:0;font-size:1.3rem;line-height:1;cursor:pointer;color:var(--steel)}
+@media (prefers-color-scheme:dark){.ad-btn{color:#0e1520}}
+@media (max-width:760px){.ad{display:none}}
+@media (prefers-reduced-motion:reduce){.plane,.ad{transition:none}}
