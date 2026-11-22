@@ -50,7 +50,7 @@ dt{padding:.6rem .8rem;font-size:.85rem;color:var(--steel);border-right:1px soli
 dd{padding:.6rem .8rem;font-size:.95rem;font-weight:500}
 
 /* Sections */
-.block{display:grid;grid-template-columns:22px 1fr;gap:2rem;padding:3.2rem 0;border-top:2px solid var(--ink)}
+.block{display:grid;grid-template-columns:220px 2fr;gap:2rem;padding:3.2rem 0;border-top:2px solid var(--ink)}
 .block h2{font-size:clamp(1.7rem,3.4vw,2.3rem);font-weight:800;font-stretch:108%;letter-spacing:-.02em;position:sticky;top:90px;align-self:start}
 .block-body h3{font-size:1.2rem;font-weight:700;letter-spacing:-.005em;line-height:1.25}
 
